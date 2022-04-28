@@ -5,7 +5,7 @@ import 'package:medicine_manager/utils/my_week_day_selector.dart';
 import '../utils/my_text_form_field.dart';
 import '../utils/my_text_form_field_date.dart';
 
-class ScheduleTabView extends StatefulWidget {
+class ScheduleTabView extends StatelessWidget {
   ScheduleTabView({
     Key? key,
     required this.values,
@@ -24,11 +24,6 @@ class ScheduleTabView extends StatefulWidget {
   final Function(String?) onChangeScheduledQuantity;
 
   @override
-  State<ScheduleTabView> createState() => _ScheduleTabViewState();
-}
-
-class _ScheduleTabViewState extends State<ScheduleTabView> {
-  @override
   Widget build(BuildContext context) {
     return Center(
         child: Padding(
@@ -37,19 +32,18 @@ class _ScheduleTabViewState extends State<ScheduleTabView> {
                 child: ListView(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
               children: [
-                MyWeekDaySelector(
-                    values: widget.values, onSaved: widget.onChangeValues),
+                MyWeekDaySelector(values: values, onSaved: onChangeValues),
                 const SizedBox(height: 16),
                 DateTimePicker(
                   type: DateTimePickerType.time,
                   timeHintText: 'Horário',
-                  onChanged: widget.onChangeScheduleDate,
+                  onChanged: onChangeScheduleDate,
                 ),
                 const SizedBox(height: 16),
                 MyTextFormField(
-                  input: widget.scheduledQuantity,
+                  input: scheduledQuantity,
                   label: 'Quantidade (un.)',
-                  onChange: widget.onChangeScheduledQuantity,
+                  onChange: onChangeScheduledQuantity,
                 ),
               ],
             ))));

@@ -38,8 +38,8 @@ class _NavigationMenuState extends State<NavigationMenu> {
         },
         destinations: const [
           NavigationDestination(
-            selectedIcon: Icon(Icons.join_full),
-            icon: Icon(Icons.start),
+            selectedIcon: Icon(Icons.aod_rounded),
+            icon: Icon(Icons.aod_outlined),
             label: 'Primeiros passos',
           ),
           NavigationDestination(

@@ -3,7 +3,7 @@ import 'package:medicine_manager/utils/my_text_form_field_date.dart';
 
 import '../utils/my_text_form_field.dart';
 
-class QuantityTabView extends StatefulWidget {
+class QuantityTabView extends StatelessWidget {
   const QuantityTabView(
       {Key? key,
       required this.quantity,
@@ -18,11 +18,6 @@ class QuantityTabView extends StatefulWidget {
   final Function(String?) onChangeExpirationDate;
 
   @override
-  State<QuantityTabView> createState() => _QuantityTabViewState();
-}
-
-class _QuantityTabViewState extends State<QuantityTabView> {
-  @override
   Widget build(BuildContext context) {
     return Center(
         child: Padding(
@@ -32,15 +27,15 @@ class _QuantityTabViewState extends State<QuantityTabView> {
               padding: const EdgeInsets.all(16),
               children: [
                 MyTextFormField(
-                  input: widget.quantity,
+                  input: quantity,
                   label: 'Quantidade (un.)',
-                  onChange: widget.onChangeQuantity,
+                  onChange: onChangeQuantity,
                 ),
                 const SizedBox(height: 16),
                 MyDateFormField(
-                  input: widget.expirationDate,
+                  input: expirationDate,
                   label: 'Validade do remédio',
-                  onSaved: widget.onChangeExpirationDate,
+                  onSaved: onChangeExpirationDate,
                 ),
               ],
             ))));

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../utils/my_text_form_field.dart';
 
-class DescriptionTabView extends StatefulWidget {
+class DescriptionTabView extends StatelessWidget {
   const DescriptionTabView(
       {Key? key,
       required this.name,
@@ -17,11 +17,6 @@ class DescriptionTabView extends StatefulWidget {
   final Function(String?) onChangeDescription;
 
   @override
-  State<DescriptionTabView> createState() => _DescriptionTabViewState();
-}
-
-class _DescriptionTabViewState extends State<DescriptionTabView> {
-  @override
   Widget build(BuildContext context) {
     return Center(
         child: Padding(
@@ -31,15 +26,15 @@ class _DescriptionTabViewState extends State<DescriptionTabView> {
               padding: const EdgeInsets.all(16),
               children: [
                 MyTextFormField(
-                  input: widget.name,
+                  input: name,
                   label: 'Nome do remédio',
-                  onChange: widget.onChangeName,
+                  onChange: onChangeName,
                 ),
                 const SizedBox(height: 16),
                 MyTextFormField(
-                  input: widget.description,
+                  input: description,
                   label: 'Descrição do remédio',
-                  onChange: widget.onChangeDescription,
+                  onChange: onChangeDescription,
                 )
               ],
             ))));

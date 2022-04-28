@@ -24,32 +24,32 @@ class _IntroScreenState extends State<IntroScreen> {
         const Duration(seconds: 5), (Timer t) => _myKey.currentState?.next());
   }
 
-  PageViewModel introPage(String description, String asset) {
-    return PageViewModel(
-      title: "Guia para adicionar um remédio",
-      bodyWidget: Container(
-        padding: const EdgeInsets.only(top: 20),
-        child: Column(
-          children: [
-            Text(description,
+  Container introPage(String description, String asset) {
+    return Container(
+      margin: const EdgeInsets.all(50),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          border: Border.all(color: Colors.blue)),
+      padding: const EdgeInsets.only(top: 20),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(description,
                 style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w400,
                     fontSize: 16)),
-            const SizedBox(
-              height: 20,
-            ),
-            Center(
-                child: Image.asset(
-              'assets/' + asset + '.jpg',
-              width: 300,
-            )),
-          ],
-        ),
-      ),
-      decoration: const PageDecoration(
-        titleTextStyle: TextStyle(
-            color: Colors.blue, fontWeight: FontWeight.w500, fontSize: 24),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Center(
+              child: Image.asset(
+            'assets/' + asset + '.jpg',
+            width: 300,
+          )),
+        ],
       ),
     );
   }
@@ -68,14 +68,17 @@ class _IntroScreenState extends State<IntroScreen> {
 
     return Consumer<MedicinesProvider>(
         builder: (context, medicineProvider, _) => Scaffold(
+              appBar: AppBar(
+                title: Center(child: Text("Guia para adicionar um remédio")),
+              ),
               body: SafeArea(
                 child: IntroductionScreen(
                   key: _myKey,
-                  pages: listPagesViewModel,
+                  rawPages: listPagesViewModel,
                   onDone: () => widget.onDone(),
                   onSkip: () => widget.onDone(),
                   showBackButton: false,
-                  showSkipButton: true,
+                  showSkipButton: false,
                   showNextButton: false,
                   skip: const Text("Pular Tutorial"),
                   next: const Text("Próximo"),

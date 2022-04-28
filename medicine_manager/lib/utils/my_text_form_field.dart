@@ -22,6 +22,7 @@ class MyTextFormField extends StatelessWidget {
           return null;
         }
       },
+      initialValue: input,
       maxLength: 30,
       onChanged: onChange,
       onSaved: onChange,
